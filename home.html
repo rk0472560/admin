@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike Shop | Navbar</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons (Bootstrap + Font Awesome) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* Navbar styling */
+    .navbar {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff4d4d !important;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand i {
+      color: #ff4d4d;
+      font-size: 1.8rem;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ff4d4d;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ff4d4d !important;
+    }
+
+    /* Book Test Ride Button */
+  
+    .book-btn {
+      background: linear-gradient(90deg, #ff4d4d, #ff884d);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background: linear-gradient(90deg, #ff884d, #ff4d4d);
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+    }
+
+    /* Icons styling */
+    .nav-icons i {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .nav-icons i:hover {
+      color: #ff4d4d;
+    }
+
+    /* Sticky effect */
+    .navbar.scrolled {
+      background: #000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+        /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Background video or image */
+    .hero-section video,
+    .hero-section::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Optional fallback image (if video fails) */
+    .hero-section::before {
+      content: "";
+      background: url('https://images.unsplash.com/photo-1597764696340-59d3f32e60b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+      filter: brightness(50%);
+    }
+
+    /* Dark overlay */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin: 20px 0 40px;
+      color: #ddd;
+    }
+
+    /* Buttons */
+    .hero-btn {
+      border: none;
+      padding: 12px 30px;
+      margin: 0 10px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(90deg, #ff4d4d, #ff884d);
+      color: #fff;
+    }
+
+    .btn-primary-custom:hover {
+      background: linear-gradient(90deg, #ff884d, #ff4d4d);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+    }
+
+    .btn-outline-custom {
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+    }
+
+    .btn-outline-custom:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    /* Scroll down arrow */
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: #fff;
+      animation: bounce 2s infinite;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive typography */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+     /* SECTION BASE */
+    .categories-section {
+      background-color: #0a0a0a;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .categories-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+      color: #ff4d4d;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* CATEGORY CARD */
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.1);
+      filter: brightness(70%);
+    }
+
+    /* Overlay text */
+    .category-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .category-card:hover .category-overlay {
+      opacity: 1;
+    }
+
+    .category-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .shop-now-btn {
+      background: linear-gradient(90deg, #ff4d4d, #ff884d);
+      border: none;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .shop-now-btn:hover {
+      background: linear-gradient(90deg, #ff884d, #ff4d4d);
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 77, 77, 0.6);
+    }
+
+    /* CARD GRID */
+    .category-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+     /* Section Styling */
+    .best-sellers {
+      background-color: #0a0a0a;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .best-sellers h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+    }
+
+    /* Swiper Container */
+    .swiper {
+      width: 100%;
+      padding-bottom: 60px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      width: 280px;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(255, 77, 77, 0.3);
+    }
+
+    .product-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      color: #ff884d;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      color: #ffc107;
+      margin-bottom: 15px;
+    }
+
+    .btn-buy {
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff4d4d, #ff884d);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .btn-buy:hover {
+      background: linear-gradient(90deg, #ff884d, #ff4d4d);
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 77, 77, 0.6);
+    }
+
+    /* Swiper Navigation Buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff4d4d;
+    }
+
+    .swiper-pagination-bullet {
+      background: #ff4d4d;
+    }
+
+    @media (max-width: 768px) {
+      .product-card {
+        width: 240px;
+      }
+    }
+    /* SECTION BASE */
+    .why-choose-section {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1609429941782-cd5f39c1c47b?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    /* Overlay for better contrast */
+    .why-choose-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .why-choose-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .why-choose-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 60px;
+    }
+
+    /* ICON BOXES */
+    .feature-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 40px 25px;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 77, 77, 0.15);
+      border-color: #ff4d4d;
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+    }
+
+    .feature-box i {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff884d;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover i {
+      transform: scale(1.2);
+      color: #ff4d4d;
+    }
+
+    .feature-box h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .feature-box p {
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive layout tweaks */
+    @media (max-width: 768px) {
+      .feature-box {
+        margin-bottom: 25px;
+      }
+    }
+    /* SECTION BASE */
+    .testimonials-section {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+      color: #fff;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .testimonials-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .testimonials-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonials-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    /* Testimonial Card */
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      transition: all 0.4s ease;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 77, 77, 0.1);
+      box-shadow: 0 0 25px rgba(255, 77, 77, 0.25);
+    }
+
+    .testimonial-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #ff4d4d;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    .testimonial-card h5 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-card span {
+      color: #ccc;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card p {
+      color: #eee;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    /* Star Rating */
+    .stars {
+      color: #ffcc33;
+      margin-bottom: 10px;
+    }
+
+    /* Carousel Controls */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #ff4d4d;
+      border-radius: 50%;
+      padding: 20px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-card {
+        padding: 30px 20px;
+      }
+      .testimonials-section h2 {
+        font-size: 2rem;
+      }
+    }
+      /* SECTION BASE */
+    .gallery-section {
+      background: #111;
+      padding: 100px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+    }
+
+    /* Masonry / Grid Layout */
+    .gallery-grid {
+      column-count: 3;
+      column-gap: 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      margin-bottom: 15px;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(70%);
+    }
+
+    /* Hover Overlay */
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 77, 77, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 12px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 992px) {
+      .gallery-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .gallery-grid {
+        column-count: 1;
+      }
+    }
+    /* SECTION BASE */
+    .newsletter-section {
+      position: relative;
+      background: linear-gradient(to right, #111, #222);
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Background animation (subtle glow pulse) */
+    .newsletter-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,77,77,0.1) 0%, transparent 70%);
+      animation: pulse 5s infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.2); opacity: 0.3; }
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Heading text animation */
+    .newsletter-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    .newsletter-section p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 40px
+    }
+
+    /* Form styling */
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .newsletter-form input {
+      padding: 14px 20px;
+      width: 320px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      background: #fff;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .newsletter-form input:focus {
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+    }
+
+    .newsletter-form button {
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px rgba(255,77,77,0.3); }
+      100% { box-shadow: 0 0 25px rgba(255,77,77,0.7); }
+    }
+
+    .newsletter-form button:hover {
+      background: #ff6f61;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive layout */
+    @media (max-width: 576px) {
+      .newsletter-form input {
+        width: 100%;
+      }
+      .newsletter-section h2 {
+        font-size: 2rem;
+      }
+    }
+     /* --- Footer Styling --- */
+    footer {
+      background: #0d0d0d;
+      color: #fff;
+      padding: 60px 0 30px;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    footer a {
+      color: #ff004f;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ff9900;
+    }
+
+    footer .footer-top {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    footer h5 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #ff004f;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer .social-icons a {
+      font-size: 1.3rem;
+      margin-right: 15px;
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      transform: translateY(-3px);
+      color: #ff9900;
+    }
+
+    footer .footer-bottom {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.85rem;
+    }
+
+    footer .footer-bottom span {
+      color: #ff004f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-motorcycle"></i> RidePro Bikes
+      </a>
+
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="/home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/Contact.html">Contact</a></li>
+          <li class="nav-item ms-3"><button class="book-btn">Book Test Ride</button></li>
+          <li class="nav-item nav-icons d-flex align-items-center">
+            <i class="bi bi-search"></i>
+            <i class="bi bi-cart2"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Sticky navbar on scroll
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+ </script>
+<!-- HERO SECTION -->
+  <section class="hero-section">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3064061/3064061-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="hero-overlay"> 
+      <img src="imag2.jpg" alt="">
+    </div>
+     
+    <!-- Content -->
+    <div class="hero-content">
+      <h1>Ride Your Passion with Precision</h1>
+      <p>Top-quality bikes, gear, and service for every rider.</p>
+      <div>
+        <button class="hero-btn btn-primary-custom">Shop Now</button>
+        <button class="hero-btn btn-outline-custom">Book Test Ride</button>
+      </div>
+    </div>
+
+    <!-- Scroll down arrow -->
+    <div class="scroll-down">
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </section>
+ <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Featured Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <h2>Featured Categories</h2>
+
+      <div class="category-card-container">
+
+        <!-- 1. Mountain Bikes -->
+        <div class="category-card">
+          <img src="img1.jpg" alt="Mountain Bikes">
+          <div class="category-overlay">
+            <h3>🚲 Mountain Bikes</h3>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+
+        <!-- 2. City / Road Bikes -->
+        <div class="category-card">
+          <img src="img2.jpg" alt="City Road Bikes">
+          <div class="category-overlay">
+            <h3>🏙️ City / Road Bikes</h3>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+
+        <!-- 3. Electric Bikes -->
+        <div class="category-card">
+          <img src="img3.jpg" alt="Electric Bikes">
+          <div class="category-overlay">
+            <h3>⚡ Electric Bikes</h3>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+
+        <!-- 4. Gear & Accessories -->
+        <div class="category-card">
+          <img src="img4.jpg" alt="Gear & Accessories">
+          <div class="category-overlay">
+            <h3>🧤 Gear & Accessories</h3>
+            <button class="shop-now-btn">Shop Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Best Sellers Section -->
+  <section class="best-sellers">
+    <div class="container">
+      <h2>Best Sellers</h2>
+
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Product 1 -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="imag1.jpg" class="product-img" alt="Mountain Bike">
+              <div class="product-info">
+                <h5>Mountain Racer X200</h5>
+                <div class="price">$999</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="btn-buy">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="imag2.jpg" class="product-img" alt="Road Bike">
+              <div class="product-info">
+                <h5>City Pro 500</h5>
+                <div class="price">$799</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="btn-buy">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="imag3.jpg" class="product-img" alt="Electric Bike">
+              <div class="product-info">
+                <h5>Volt E-Bike</h5>
+                <div class="price">$1,299</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="btn-buy">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="imag4.jpg" class="product-img" alt="Helmet">
+              <div class="product-info">
+                <h5>Rider Pro Helmet</h5>
+                <div class="price">$149</div>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <button class="btn-buy">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="img4.jpg" class="product-img" alt="Accessories">
+              <div class="product-info">
+                <h5>Gear Set Combo</h5>
+                <div class="price">$249</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="btn-buy">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination + Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1200: { slidesPerView: 3 },
+      },
+    });
+  </script>
+    <!-- Why Choose Us Section -->
+  <section class="why-choose-section">
+    <div class="container why-choose-content">
+      <h2>Why Choose Us</h2>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- 1. Expert Maintenance -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <i class="fa-solid fa-wrench"></i>
+            <h5>Expert Maintenance</h5>
+            <p>Professional bike repair and tune-ups from certified experts who ride as hard as you do.</p>
+          </div>
+        </div>
+
+        <!-- 2. Fast Delivery -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h5>Fast Delivery</h5>
+            <p>Get your dream bike or gear delivered quickly and safely, right to your doorstep.</p>
+          </div>
+        </div>
+
+        <!-- 3. Premium Quality Bikes -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <i class="fa-solid fa-trophy"></i>
+            <h5>Premium Quality Bikes</h5>
+            <p>We partner with top brands to bring you performance bikes that go the extra mile.</p>
+          </div>
+        </div>
+
+        <!-- 4. Trusted by Riders -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <i class="fa-solid fa-comments"></i>
+            <h5>Trusted by Riders</h5>
+            <p>Thousands of satisfied riders trust us for bikes, gear, and reliable service every time.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container testimonials-content">
+      <h2>What Our Riders Say</h2>
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+
+          <!-- Testimonial 1 -->
+          <div class="carousel-item active">
+            <div class="testimonial-card">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rider 1">
+              <h5>John Parker</h5>
+              <span>Los Angeles, CA</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <p>“Absolutely love my new road bike! Smooth, fast, and the staff were super friendly. Highly recommend!”</p>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rider 2">
+              <h5>Emily Johnson</h5>
+              <span>New York, NY</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>“The electric bikes are amazing! Smooth ride, great battery life, and fast delivery. I’ll be back!”</p>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Rider 3">
+              <h5>Michael Lee</h5>
+              <span>Seattle, WA</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>“These guys know their stuff. The maintenance service is top-notch and the bikes are premium quality.”</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2>#RideWithUs</h2>
+      <p class="text-secondary mb-5">Join our rider community and share your best moments. Tag us on Instagram!</p>
+
+      <div class="gallery-grid">
+        <!-- Gallery Items -->
+        <div class="gallery-item">
+          <img src="imag1.jpg" alt="Bike 1">
+          <div class="gallery-overlay"><span>Mountain Racer X200</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img1.jpg" alt="Bike 2">
+          <div class="gallery-overlay"><span>Mountain Bikes</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="imag2.jpg" alt="Bike 3">
+          <div class="gallery-overlay"><span>City Pro 500</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img2.jpg" alt="Bike 4">
+          <div class="gallery-overlay"><span>City /Road Bike</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="imag3.jpg" alt="Bike 5">
+          <div class="gallery-overlay"><span>Volt E-Bike</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img3.jpg" alt="Bike 6">
+          <div class="gallery-overlay"><span>⚡ Electric Bikes</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container newsletter-content">
+      <h2>Join Our Riders Club & Get 10% Off Your First Ride</h2>
+      <p>Be the first to hear about new arrivals, exclusive offers, and upcoming rides.</p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <input type="password" placeholder="Enter your pssword" required>
+        <button type="submit">
+          <i class="fa-regular fa-envelope me-2"></i> Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="row footer-top">
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-4 mb-4 text-center">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4 mb-4 text-md-end">
+          <h5>Contact</h5>
+          <p>123 Bike Street, City, Country</p>
+          <p>Phone: +1 234 567 890</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright © <span id="year"></span> Bike Shop Name</p>
+        <p>Built with <span>❤️</span> by Your Name</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script to update year automatically -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
